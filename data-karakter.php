@@ -86,10 +86,10 @@ class KatalogService
 }
 
 $daftarKarakter = [];
-$daftarKarakter[] = new Karakter( "APPLe", "Bintang 4", "Star", "Mental", ["Heal"], "apple.jpg" );
-$daftarKarakter[] = new Karakter( "Name Day", "Bintang 5", "Mineral", "Mental", ["Support"], "name_day.jpg" );
-$daftarKarakter[] = new Karakter( "Tennant", "Bintang 5", "Beast", "Reality", ["Shield"], "tennant.jpg" );
-$daftarKarakter[] = new Karakter( "Bkornblume", "Bintang 5", "Plant", "Reality", ["Debuff"], "bkornblume.jpg" );
-$daftarKarakter[] = new Karakter( "A Knight", "Bintang 6", "Spirit", "Reality", ["DPS"], "a_knight.jpg" );
-$daftarKarakter[] = new Karakter( "Lucy", "Bintang 6", "Intellect", "Reality", ["DPS"], "lucy.png" );
+$daftarKarakter[] = new Karakter( "APPLe", "★★★★", "Star", "Mental", ["Heal"], "APPLe.png");
+$daftarKarakter[] = new Karakter( "Name Day", "★★★★★", "Mineral", "Mental", ["Support"], "Nameday2.webp" );
+$daftarKarakter[] = new Karakter( "Tennant", "★★★★★", "Beast", "Reality", ["Shield"], "tennant.jpg" );
+$daftarKarakter[] = new Karakter( "Bkornblume", "★★★★★", "Plant", "Reality", ["Debuff"], "bkornblume.webp" );
+$daftarKarakter[] = new Karakter( "A Knight", "★★★★★★", "Spirit", "Reality", ["DPS"], "knight.jpg" );
+$daftarKarakter[] = new Karakter( "Lucy", "★★★★★★", "Intellect", "Reality", ["DPS"], "lucy.jpg" );
 ?>
