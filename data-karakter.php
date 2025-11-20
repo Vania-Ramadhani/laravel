@@ -1,50 +1,52 @@
 <?php
-class Karakter
+class Karakter //class bernama karakter
 {
     public $nama;
     public $rarity;
     public $afflatus;
     public $damageType;
     public $tags;
-    public $gambar;
+    public $gambar; // properti (variabel dalam class)
 
-    public function __construct($nama, $rarity, $afflatus, $damageType, $tags, $gambar)
+    public function __construct($nama, $rarity, $afflatus, $damageType, $tags, $gambar) 
+    //construct biar otomatis dipanggil saat objek dibuat, menerima paramater untuk mengisi properti
     {
         $this->nama = $nama;
         $this->rarity = $rarity;
         $this->afflatus = $afflatus;
         $this->damageType = $damageType;
         $this->tags = $tags;
-        $this->gambar = $gambar;
+        $this->gambar = $gambar; // ini paramaternnya. gunanya ngisi properti class dari parameter construct ($this)
     }
 }
 
-class KatalogService
+class KatalogService // khusus untuk mengelola daftar karakter
 {
-        private $semuaKarakter = [];
-        public function __construct($daftarKarakter)
+        private $semuaKarakter = []; //properti class
+        //private artinya hanya bisa diakses dari dalam class aja. klo mau dipanggil keluar pakai public function di dalam class ini
+        public function __construct($daftarKarakter) //paramater
     {
         $this->semuaKarakter = $daftarKarakter;
     }
 
-    public function findByName($nama)
+    public function findByName($nama) //ini biar $nama bs dipanggil dr luar
     {
-        foreach ($this->semuaKarakter as $karakter) {
-            if ($karakter->nama == $nama) {
+        foreach ($this->semuaKarakter as $karakter) { //looping
+            if ($karakter->nama == $nama) { //kalau ada yang cocok, dibalikin objeknnya sbg hasil
                 return $karakter;
             }
         }
-        return null;
+        return null; //klo gk ada yg cocok
     }
 
     public function filter($filterArray)
     {
-        $hasilFilter = [];
-        $searchTerm   = strtolower($filterArray['search'] ?? "");
+        $hasilFilter = []; //buat hasil filter
+        $searchTerm   = strtolower($filterArray['search'] ?? "");//biar jadi kecil semua hurufnya
         $rarity       = $filterArray['rarity'] ?? "";
         $afflatus     = $filterArray['afflatus'] ?? "";
         $damageType   = $filterArray['damage_type'] ?? "";
-        $tag          = $filterArray['tag'] ?? "";
+        $tag          = $filterArray['tag'] ?? ""; // ambil semua, klo gaada pakai empty string
 
         foreach ($this->semuaKarakter as $karakter) {
             $lolosSearch = true;
@@ -86,10 +88,10 @@ class KatalogService
 }
 
 $daftarKarakter = [];
-$daftarKarakter[] = new Karakter( "APPLe", "★★★★", "Star", "Mental", ["Heal"], "APPLe.png");
-$daftarKarakter[] = new Karakter( "Name Day", "★★★★★", "Mineral", "Mental", ["Support"], "Nameday2.webp" );
-$daftarKarakter[] = new Karakter( "Tennant", "★★★★★", "Beast", "Reality", ["Shield"], "tennant.jpg" );
-$daftarKarakter[] = new Karakter( "Bkornblume", "★★★★★", "Plant", "Reality", ["Debuff"], "bkornblume.webp" );
-$daftarKarakter[] = new Karakter( "A Knight", "★★★★★★", "Spirit", "Reality", ["DPS"], "knight.jpg" );
-$daftarKarakter[] = new Karakter( "Lucy", "★★★★★★", "Intellect", "Reality", ["DPS"], "lucy.jpg" );
+$daftarKarakter[] = new Karakter( "APPLe", "Bintang 4", "Star", "Mental", ["Heal"], "apple.jpg" );
+$daftarKarakter[] = new Karakter( "Name Day", "Bintang 5", "Mineral", "Mental", ["Support"], "name_day.jpg" );
+$daftarKarakter[] = new Karakter( "Tennant", "Bintang 5", "Beast", "Reality", ["Shield"], "tennant.jpg" );
+$daftarKarakter[] = new Karakter( "Bkornblume", "Bintang 5", "Plant", "Reality", ["Debuff"], "bkornblume.jpg" );
+$daftarKarakter[] = new Karakter( "A Knight", "Bintang 6", "Spirit", "Reality", ["DPS"], "a_knight.jpg" );
+$daftarKarakter[] = new Karakter( "Lucy", "Bintang 6", "Intellect", "Reality", ["DPS"], "lucy.png" );
 ?>
